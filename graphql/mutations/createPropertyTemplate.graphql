@@ -1,0 +1,30 @@
+# NOTE: This mutation is constructed dynamically in src/tools/propertyTemplate.ts
+# because the sub-property block varies by dataType.
+#
+# The effective structure for STRING is:
+#
+# mutation CreatePropertyTemplate(
+#   $repositoryIdentifier: String!
+#   $dataType: PropertyTemplateDataType!
+#   $symbolicName: String!
+#   $displayName: String!
+#   $cardinality: Cardinality!
+#   $choiceListIdentifier: String
+# ) {
+#   admCreatePropertyTemplate(
+#     repositoryIdentifier: $repositoryIdentifier
+#     dataType: $dataType
+#     propertyTemplateProperties: {
+#       symbolicName: $symbolicName
+#       cardinality: $cardinality
+#       displayNames: { replace: [{ localeName: "en-us", localizedText: $displayName }] }
+#       choiceList: { identifier: $choiceListIdentifier }          # only if choiceListId provided
+#       subPropertyTemplateStringProperties: {}                    # STRING
+#       # subPropertyTemplateBooleanProperties: {}                 # BOOLEAN
+#       # subPropertyTemplateDateTimeProperties: {}                # DATE
+#       # subPropertyTemplateObjectProperties: { allowsForeignObject: false } # OBJECT
+#     }
+#   ) {
+#     id
+#   }
+# }

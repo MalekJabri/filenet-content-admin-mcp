@@ -1,0 +1,876 @@
+# HRDocument metadata migration - Stage 2
+# Create property templates for all custom HRDocument properties.
+# Replace OS2 with the target repository symbolic identifier or GUID.
+# Replace CHOICE_LIST_ID_* placeholders with actual choice list object ids where used.
+# This file follows the tenant mutation structure using admCreatePropertyTemplate.
+#
+# Notes:
+# - dataType is passed at the mutation level.
+# - displayNames are localized with en-us.
+# - String properties use subPropertyTemplateStringProperties.
+# - Choice-list binding is added only for fields intended to use controlled values.
+
+mutation CreateFirstNamePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "First Name"
+          }
+        ]
+      }
+      symbolicName: "FirstName"
+
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateLastNamePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Last Name"
+          }
+        ]
+      }
+      symbolicName: "LastName"
+
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreatePersonalIDPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Personal ID"
+          }
+        ]
+      }
+      symbolicName: "PersonalID"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateBirthdatePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: DATE
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Birthdate"
+          }
+        ]
+      }
+      symbolicName: "Birthdate"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateEmployeeIDPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Employee ID"
+          }
+        ]
+      }
+      symbolicName: "EmployeeID"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateJobRolePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Job Role"
+          }
+        ]
+      }
+      symbolicName: "JobRole"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_JOBROLE_CL"
+      }
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateJobFunctionPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Job Function"
+          }
+        ]
+      }
+      symbolicName: "JobFunction"
+   
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateJobCodePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Job Code"
+          }
+        ]
+      }
+      symbolicName: "JobCode"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateJobLevelPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Job Level"
+          }
+        ]
+      }
+      symbolicName: "JobLevel"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateJobStatusPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Job Status"
+          }
+        ]
+      }
+      symbolicName: "JobStatus"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_JOBSTATUS_CL"
+      }
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateEmploymentTypePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Employment Type"
+          }
+        ]
+      }
+      symbolicName: "EmploymentType"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_EMPLOYMENTTYPE_CL"
+      }
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateCurrentStatusPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Current Status"
+          }
+        ]
+      }
+      symbolicName: "CurrentStatus"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_CURRENTSTATUS_CL"
+      }
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateCompanyPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Company"
+          }
+        ]
+      }
+      symbolicName: "Company"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateCompanyCodePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Company Code"
+          }
+        ]
+      }
+      symbolicName: "CompanyCode"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateBusinessUnitPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Business Unit"
+          }
+        ]
+      }
+      symbolicName: "BusinessUnit"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateDivisionPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Division"
+          }
+        ]
+      }
+      symbolicName: "Division"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateDepartmentPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Department"
+          }
+        ]
+      }
+      symbolicName: "Department"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_DEPARTMENT_CL"
+      }
+   
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateCostCenterPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Cost Center"
+          }
+        ]
+      }
+      symbolicName: "CostCenter"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateLocationPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Location"
+          }
+        ]
+      }
+      symbolicName: "Location"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_LOCATION_CL"
+      }
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateStartDatePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: DATE
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Start Date"
+          }
+        ]
+      }
+      symbolicName: "StartDate"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateTerminationDatePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: DATE
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Termination Date"
+          }
+        ]
+      }
+      symbolicName: "TerminationDate"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSAPEmployeeIDPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SAP Employee ID"
+          }
+        ]
+      }
+      symbolicName: "SAPEmployeeID"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSapLinkTriggerPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: BOOLEAN
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SapLinkTrigger"
+          }
+        ]
+      }
+      symbolicName: "SapLinkTrigger"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSapLinkedPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "sapLinked"
+          }
+        ]
+      }
+      symbolicName: "sapLinked"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSAPDocIdPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SAPDocId"
+          }
+        ]
+      }
+      symbolicName: "SAPDocId"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSAPDocProtPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SAPDocProt"
+          }
+        ]
+      }
+      symbolicName: "SAPDocProt"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSAPCompsPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SAPComps"
+          }
+        ]
+      }
+      symbolicName: "SAPComps"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSAPContTypePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SAPContType"
+          }
+        ]
+      }
+      symbolicName: "SAPContType"
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSAPCompVersionPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SAPCompVersion"
+          }
+        ]
+      }
+      symbolicName: "SAPCompVersion"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSFLinkTriggerPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: BOOLEAN
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "SFLinkTrigger"
+          }
+        ]
+      }
+      symbolicName: "SFLinkTrigger"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateSfSalesforceRelationshipsPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: OBJECT
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Salesforce Relationships"
+          }
+        ]
+      }
+      symbolicName: "SfSalesforceRelationships"
+      subPropertyTemplateObjectProperties: {
+        allowsForeignObject: true
+      }
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateDocuflowTimestampPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: DATE
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "docuflowTimestamp"
+          }
+        ]
+      }
+      symbolicName: "docuflowTimestamp"
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateDocuflowUsernamePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "docuflowUsername"
+          }
+        ]
+      }
+      symbolicName: "docuflowUsername"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateDocTypePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "DocType"
+          }
+        ]
+      }
+      symbolicName: "DocType"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_DOCTYPE_CL"
+      }
+      
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateDocumentCategoryPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Document Category"
+          }
+        ]
+      }
+      symbolicName: "DocumentCategory"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_DOCUMENTCATEGORY_CL"
+      }
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateClassDocTypePropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "ClassDocType"
+          }
+        ]
+      }
+      symbolicName: "ClassDocType"
+      choiceList: {
+        identifier: "CHOICE_LIST_ID_HRDOCUMENT_CLASSDOCTYPE_CL"
+      }
+    
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateGenaiDateIndexedPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: DATE
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Gen AI Date Indexed"
+          }
+        ]
+      }
+      symbolicName: "GenaiDateIndexed"
+     
+    }
+  ) {
+    id
+  }
+}
+
+mutation CreateGenaiWatsonxSummaryPropertyTemplate {
+  admCreatePropertyTemplate(
+    repositoryIdentifier: "OS2"
+    dataType: STRING
+    propertyTemplateProperties: {
+      cardinality: SINGLE
+      displayNames: {
+        replace: [
+          {
+            localeName: "en-us"
+            localizedText: "Watsonx Summary"
+          }
+        ]
+      }
+      symbolicName: "GenaiWatsonxSummary"
+     
+    }
+  ) {
+    id
+  }
+}

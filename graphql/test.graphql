@@ -1,0 +1,15 @@
+{
+  folder( repositoryIdentifier: "OS1" 
+  identifier: "/InputFolder"  
+  ) 
+  {
+      id
+      className
+        containedDocuments {
+        documents {
+            name
+            creator        
+        }
+     }
+    }    
+  }

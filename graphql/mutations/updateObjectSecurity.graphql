@@ -1,0 +1,37 @@
+mutation UpdateDocumentSecurity(
+  $repositoryIdentifier: String!
+  $identifier: String!
+  $permissions: [AccessPermissionInput!]!
+) {
+  updateDocument(
+    repositoryIdentifier: $repositoryIdentifier
+    identifier: $identifier
+    documentProperties: {
+      permissions: {
+        replace: $permissions
+      }
+    }
+  ) {
+    id
+    name
+  }
+}
+
+mutation UpdateFolderSecurity(
+  $repositoryIdentifier: String!
+  $identifier: String!
+  $permissions: [AccessPermissionInput!]!
+) {
+  updateFolder(
+    repositoryIdentifier: $repositoryIdentifier
+    identifier: $identifier
+    folderProperties: {
+      permissions: {
+        replace: $permissions
+      }
+    }
+  ) {
+    id
+    name
+  }
+}

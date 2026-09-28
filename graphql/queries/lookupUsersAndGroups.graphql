@@ -1,0 +1,88 @@
+# Retrieve the current authenticated user
+query GetCurrentUser {
+  secCurrentUser {
+    id
+    shortName
+    displayName
+    distinguishedName
+  }
+}
+
+# Retrieve a specific user by id, short name, or distinguished name
+query GetUser($identifier: String!) {
+  secUser(identifier: $identifier) {
+    id
+    shortName
+    displayName
+    distinguishedName
+  }
+}
+
+# Retrieve a specific group by id, short name, or distinguished name
+query GetGroup($identifier: String!) {
+  secGroup(identifier: $identifier) {
+    id
+    shortName
+    displayName
+    distinguishedName
+  }
+}
+
+# Search users by short name, display name, or distinguished name
+query SearchUsers(
+  $realmIdentifier: String
+  $searchPattern: String!
+  $searchType: PrincipalSearchTypeEnum!
+  $searchAttribute: PrincipalSearchAttribute!
+  $sortType: PrincipalSearchSortTypeEnum
+) {
+  secUsers(
+    realmIdentifier: $realmIdentifier
+    searchPattern: $searchPattern
+    searchType: $searchType
+    searchAttribute: $searchAttribute
+    sortType: $sortType
+  ) {
+    users {
+      id
+      shortName
+      displayName
+      distinguishedName
+    }
+  }
+}
+
+# Search groups by short name, display name, or distinguished name
+query SearchGroups(
+  $realmIdentifier: String
+  $searchPattern: String!
+  $searchType: PrincipalSearchTypeEnum!
+  $searchAttribute: PrincipalSearchAttribute!
+  $sortType: PrincipalSearchSortTypeEnum
+) {
+  secGroups(
+    realmIdentifier: $realmIdentifier
+    searchPattern: $searchPattern
+    searchType: $searchType
+    searchAttribute: $searchAttribute
+    sortType: $sortType
+  ) {
+    groups {
+      id
+      shortName
+      displayName
+      distinguishedName
+    }
+  }
+}
+
+# List all realms available in the domain
+query ListRealms {
+  secRealms {
+    realms {
+      id
+      shortName
+      displayName
+    }
+  }
+}

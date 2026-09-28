@@ -1,0 +1,23 @@
+{
+  "name": "filenet-content-services-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing IBM FileNet Content Services metadata authoring as tools",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "dev": "tsc --watch"
+  },
+  "bin": {
+    "filenet-content-services-mcp": "./build/index.js"
+  },
+  "files": ["build"],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5"
+  }
+}

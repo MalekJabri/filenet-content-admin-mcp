@@ -1,0 +1,28 @@
+mutation CreateFolderClass(
+  $repositoryIdentifier: String!
+  $symbolicName: String!
+  $displayName: String!
+  $descriptiveText: String
+  $parentClassIdentifier: String!
+  $propertyDefinitions: [PropertyDefinitionInput!]!
+) {
+  createClassDefinition(
+    input: {
+      repositoryIdentifier: $repositoryIdentifier
+      symbolicName: $symbolicName
+      displayName: $displayName
+      descriptiveText: $descriptiveText
+      parentClassIdentifier: $parentClassIdentifier
+      isAbstract: false
+      isSystemOwned: false
+      propertyDefinitions: $propertyDefinitions
+    }
+  ) {
+    id
+    symbolicName
+    displayName
+    parent {
+      symbolicName
+    }
+  }
+}

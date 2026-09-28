@@ -1,0 +1,294 @@
+# HRDocument metadata migration - Stage 3
+# Create the custom document class after choice lists and property templates exist.
+# Replace OS2 with the target repository symbolic identifier or GUID.
+# Replace parentClassIdentifier and mutation/input names as needed for the tenant schema.
+# The class inherits remaining system behavior from the base Document class.
+
+mutation CreateHRDocumentClass {
+  createClassDefinition(
+    input: {
+      repositoryIdentifier: "OS2"
+      symbolicName: "HRDocument"
+      displayName: "HR Document"
+      descriptiveText: "HR Document"
+      parentClassIdentifier: "Document"
+      isAbstract: false
+      isSystemOwned: false
+      propertyDefinitions: [
+        {
+          propertyTemplateSymbolicName: "FirstName"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "LastName"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "PersonalID"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "Birthdate"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "EmployeeID"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "JobRole"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "JobFunction"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "JobCode"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "JobLevel"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "JobStatus"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "EmploymentType"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "CurrentStatus"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "Company"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "CompanyCode"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "BusinessUnit"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "Division"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "Department"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "CostCenter"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "Location"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "StartDate"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "TerminationDate"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SAPEmployeeID"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SapLinkTrigger"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "sapLinked"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SAPDocId"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SAPDocProt"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SAPComps"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SAPContType"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SAPCompVersion"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SFLinkTrigger"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "SfSalesforceRelationships"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: true
+        }
+        {
+          propertyTemplateSymbolicName: "docuflowTimestamp"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "docuflowUsername"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "DocType"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "DocumentCategory"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "ClassDocType"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "GenaiDateIndexed"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+        {
+          propertyTemplateSymbolicName: "GenaiWatsonxSummary"
+          isValueRequired: false
+          isHidden: false
+          isReadOnly: false
+          allowsForeignObject: false
+        }
+      ]
+    }
+  ) {
+    id
+    symbolicName
+    displayName
+    parent {
+      symbolicName
+    }
+  }
+}

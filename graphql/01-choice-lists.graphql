@@ -1,0 +1,659 @@
+# HRDocument metadata migration - Stage 1
+# Create optional choice lists before property templates and class creation.
+# Replace OS2 with the target repository symbolic identifier or GUID.
+# This file follows the content management GraphQL mutation structure
+# provided by the tenant using admCreateChoiceList and choiceListProperties.
+#
+# Notes:
+# - symbolicName is not included because the provided tenant mutation example
+#   does not show a symbolic-name input for choice list creation.
+# - displayName is used as the stable business identifier in this script set.
+# - displayNames are localized with en-us only; add more locales if needed.
+
+mutation CreateHRDocTypeChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document DocType Choice List"
+      descriptiveText: "Choice list for HR document type values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "JobApplication"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "JobApplication" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "InterviewNotes"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "InterviewNotes" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "EmploymentContract"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "EmploymentContract" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "IDDocument"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "IDDocument" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "PersonalInfo"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "PersonalInfo" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Payslip"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Payslip" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "SalaryInfo"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "SalaryInfo" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "PerformanceReview"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "PerformanceReview" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "TrainingRecord"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "TrainingRecord" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "DisciplinaryRecord"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "DisciplinaryRecord" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "ExitDocument"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "ExitDocument" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRDepartmentChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Department Choice List"
+      descriptiveText: "Choice list for HR department values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "IT"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "IT" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Marketing"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Marketing" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Human Resources"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Human Resources" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Sales"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Sales" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Finance"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Finance" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRJobRoleChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Job Role Choice List"
+      descriptiveText: "Choice list for HR job role values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "Senior Developer"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Senior Developer" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Marketing Manager"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Marketing Manager" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "HR Specialist"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "HR Specialist" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Sales Representative"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Sales Representative" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Financial Analyst"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Financial Analyst" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRLocationChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Location Choice List"
+      descriptiveText: "Choice list for HR location values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "Paris, France"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Paris, France" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Lyon, France"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Lyon, France" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Bordeaux, France"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Bordeaux, France" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Marseille, France"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Marseille, France" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Lille, France"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Lille, France" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRJobStatusChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Job Status Choice List"
+      descriptiveText: "Suggested choice list for job status values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "Active"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Active" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Inactive"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Inactive" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "On Leave"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "On Leave" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Terminated"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Terminated" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHREmploymentTypeChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Employment Type Choice List"
+      descriptiveText: "Suggested choice list for employment type values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "Full Time"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Full Time" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Part Time"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Part Time" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Contractor"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Contractor" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Intern"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Intern" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Temporary"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Temporary" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRCurrentStatusChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Current Status Choice List"
+      descriptiveText: "Suggested choice list for current employment status values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "Active"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Active" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Pending"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Pending" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Suspended"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Suspended" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Exited"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Exited" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRDocumentCategoryChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document Category Choice List"
+      descriptiveText: "Suggested choice list for document category values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "Recruitment"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Recruitment" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Employment"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Employment" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Compensation"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Compensation" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Performance"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Performance" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Training"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Training" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Compliance"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Compliance" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Exit"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Exit" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}
+
+mutation CreateHRClassDocTypeChoiceList {
+  admCreateChoiceList(
+    repositoryIdentifier: "OS2"
+    choiceListProperties: {
+      dataType: STRING
+      displayName: "HR Document ClassDocType Choice List"
+      descriptiveText: "Suggested choice list for classification document type values"
+      choiceValues: {
+        replace: [
+          {
+            insertAction: {}
+            choiceType: STRING
+            choiceStringValue: "EmployeeMaster"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "EmployeeMaster" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Identity"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Identity" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Compensation"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Compensation" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Performance"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Performance" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Training"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Training" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Disciplinary"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Disciplinary" }
+              ]
+            }
+          }
+          {
+            choiceType: STRING
+            choiceStringValue: "Exit"
+            displayNames: {
+              replace: [
+                { localeName: "en-us", localizedText: "Exit" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ) {
+    id
+    displayName
+  }
+}

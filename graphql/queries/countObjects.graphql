@@ -1,0 +1,34 @@
+# Count objects in a FileNet repository using COUNT_LIMIT.
+#
+# The `options` argument accepts "COUNT_LIMIT <n>" which instructs the Content
+# Engine to count matching items up to <n> beyond the current page.
+#
+# pageInfo.totalCount behaviour:
+#   - Positive value → exact count (all matches counted within the limit)
+#   - Negative value → COUNT_LIMIT was reached; the absolute value is the limit,
+#                      meaning there are AT LEAST that many matching objects.
+#
+# Reference: https://www.ibm.com/docs/en/filenet-p8-platform
+{
+  documents(
+    repositoryIdentifier: "OS1"
+    from: "Document"
+    where: "[DateCreated] > 20180815T070000Z AND [IsCurrentVersion] = True"
+    orderBy: "DocumentTitle"
+    options: "COUNT_LIMIT 5000"
+    pageSize: 20
+  ) {
+    documents {
+      dateCreated
+      id
+      name
+      majorVersionNumber
+      minorVersionNumber
+      mimeType
+    }
+    pageInfo {
+      token
+      totalCount
+    }
+  }
+}

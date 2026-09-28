@@ -1,0 +1,20 @@
+mutation CreateChoiceList(
+  $repositoryIdentifier: String!
+  $displayName: String!
+  $dataType: ChoiceListDataType!
+  $descriptiveText: String
+  $choiceValues: [ChoiceValueInput!]!
+) {
+  admCreateChoiceList(
+    repositoryIdentifier: $repositoryIdentifier
+    choiceListProperties: {
+      dataType: $dataType
+      displayName: $displayName
+      descriptiveText: $descriptiveText
+      choiceValues: { replace: $choiceValues }
+    }
+  ) {
+    id
+    displayName
+  }
+}

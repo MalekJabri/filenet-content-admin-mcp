@@ -1,0 +1,12 @@
+query ListChoiceLists($repositoryIdentifier: String!, $filter: String) {
+  admChoiceLists(
+    repositoryIdentifier: $repositoryIdentifier
+    filter: $filter
+  ) {
+    choiceList {
+      id
+      displayName
+      dataType
+    }
+  }
+}

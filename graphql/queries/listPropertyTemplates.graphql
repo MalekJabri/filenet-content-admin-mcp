@@ -1,0 +1,14 @@
+query ListPropertyTemplates($repositoryIdentifier: String!, $filter: String) {
+  admPropertyTemplates(
+    repositoryIdentifier: $repositoryIdentifier
+    filter: $filter
+  ) {
+    propertyTemplate {
+      id
+      symbolicName
+      displayName
+      dataType
+      cardinality
+    }
+  }
+}

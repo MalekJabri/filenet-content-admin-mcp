@@ -1,0 +1,15 @@
+query ListClassDefinitions(
+  $repositoryIdentifier: String!
+  $filter: String
+) {
+  admClassDefinitions(
+    repositoryIdentifier: $repositoryIdentifier
+    filter: $filter
+  ) {
+    classDefinition {
+      id
+      symbolicName
+      displayName
+    }
+  }
+}
