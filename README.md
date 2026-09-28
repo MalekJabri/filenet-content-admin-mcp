@@ -194,23 +194,11 @@ Each `permissions[]` entry has the following shape:
 
 ---
 
-### Option 1 — Clone from GitHub (recommended)
+### Option 1 — Clone and build, then register in Bob
+
+Clone the repo to a stable location, build it once, then point Bob at the compiled output:
 
 ```bash
-git clone https://github.com/MalekJabri/filenet-content-admin-mcp.git
-cd filenet-content-admin-mcp
-npm install
-npm run build
-```
-
----
-
-### Option 2 — Register in IBM Bob MCP config via Git source
-
-Clone the repo once to a stable location on disk, build it, then point Bob at the output:
-
-```bash
-# One-time setup
 git clone https://github.com/MalekJabri/filenet-content-admin-mcp.git ~/tools/filenet-content-admin-mcp
 cd ~/tools/filenet-content-admin-mcp
 npm install && npm run build
@@ -236,6 +224,39 @@ Then add the following entry to your `.bob/mcp.json`:
 ```
 
 > **Tip:** Replace `/Users/YOUR_USERNAME/tools/` with the actual path where you cloned the repo.
+> To update, run `git pull && npm install && npm run build` inside the folder, then restart Bob.
+
+---
+
+### Option 2 — Run directly from GitHub with `npx` (no local clone required)
+
+`npx` can pull and execute the server straight from a GitHub repository without a prior `git clone`
+or manual build step.  Add the following entry to your `.bob/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "filenet-cs": {
+      "command": "npx",
+      "args": ["-y", "github:MalekJabri/filenet-content-admin-mcp"],
+      "env": {
+        "FILENET_URL": "https://your-server/content-services-graphql/graphql",
+        "FILENET_USERNAME": "your-user",
+        "FILENET_PASSWORD": "your-password",
+        "REPOSITORY_ID": "OS2"
+      }
+    }
+  }
+}
+```
+
+When Bob starts, `npx` will fetch the latest published package from the GitHub repository,
+install it in a temporary cache, and launch the server automatically — no manual setup required.
+
+> **Tip:** Pin to a specific release tag to avoid unexpected changes between restarts:
+> ```json
+> "args": ["-y", "github:MalekJabri/filenet-content-admin-mcp#v1.0.0"]
+> ```
 
 ---
 
