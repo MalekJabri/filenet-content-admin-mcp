@@ -184,6 +184,91 @@ Each `permissions[]` entry has the following shape:
 
 ---
 
+## Installation & Usage
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm
+- Access to an IBM FileNet Content Services GraphQL endpoint
+
+---
+
+### Option 1 — Clone from GitHub (recommended)
+
+```bash
+git clone https://github.com/MalekJabri/filenet-content-admin-mcp.git
+cd filenet-content-admin-mcp
+npm install
+npm run build
+```
+
+---
+
+### Option 2 — Register in IBM Bob MCP config via Git source
+
+Clone the repo once to a stable location on disk, build it, then point Bob at the output:
+
+```bash
+# One-time setup
+git clone https://github.com/MalekJabri/filenet-content-admin-mcp.git ~/tools/filenet-content-admin-mcp
+cd ~/tools/filenet-content-admin-mcp
+npm install && npm run build
+```
+
+Then add the following entry to your `.bob/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "filenet-cs": {
+      "command": "node",
+      "args": ["/Users/YOUR_USERNAME/tools/filenet-content-admin-mcp/build/index.js"],
+      "env": {
+        "FILENET_URL": "https://your-server/content-services-graphql/graphql",
+        "FILENET_USERNAME": "your-user",
+        "FILENET_PASSWORD": "your-password",
+        "REPOSITORY_ID": "OS2"
+      }
+    }
+  }
+}
+```
+
+> **Tip:** Replace `/Users/YOUR_USERNAME/tools/` with the actual path where you cloned the repo.
+
+---
+
+### Environment variables
+
+Copy `.env.example` to `.env` and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `FILENET_URL` | Full URL to the FileNet GraphQL endpoint | `https://host/content-services-graphql/graphql` |
+| `FILENET_USERNAME` | FileNet admin username | `CEAdmin` |
+| `FILENET_PASSWORD` | FileNet admin password | _(keep secret)_ |
+| `REPOSITORY_ID` | Object Store symbolic name | `OS2` |
+
+---
+
+### Keeping the server up to date
+
+```bash
+cd ~/tools/filenet-content-admin-mcp
+git pull
+npm install
+npm run build
+```
+
+Restart Bob after rebuilding so it picks up the updated binary.
+
+---
+
 ## Tasks to build
 
 The following tasks represent the full implementation backlog, ordered by dependency.
